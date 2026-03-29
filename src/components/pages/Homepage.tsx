@@ -18,11 +18,11 @@ const Homepage = () => {
   return (
     <>
       <h1>This is the Homepage!</h1>
-      <div>
+      {/* <div>
         {data?.map((post) => (
           <p>{post.title}</p>
         ))}
-      </div>
+      </div> */}
     </>
   );
 };
