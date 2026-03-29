@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import Homepage from "./components/pages/Homepage";
-import Root from "./components/Layout/Root";
+import Root from "./components/layout/Root";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
