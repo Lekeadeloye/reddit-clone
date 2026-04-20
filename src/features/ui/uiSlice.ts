@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface UIState {
   isMenuSideBarOpen: boolean;
+  isSearchBarOpen: boolean;
 }
 
 const initialState: UIState = {
   isMenuSideBarOpen: false,
+  isSearchBarOpen: false
 };
 
 const uiSlice = createSlice({
@@ -21,10 +23,13 @@ const uiSlice = createSlice({
     closeMenuSideBar(state) {
       state.isMenuSideBarOpen = false;
     },
+    toggleSearchBar(state) {
+      state.isSearchBarOpen = !state.isSearchBarOpen
+    }
   },
 });
 
-export const { toggleMenuSideBar, openMenuSideBar, closeMenuSideBar } =
+export const { toggleMenuSideBar, openMenuSideBar, closeMenuSideBar, toggleSearchBar } =
   uiSlice.actions;
 
 export default uiSlice.reducer;

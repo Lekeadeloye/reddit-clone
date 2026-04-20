@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const MenuSideBar = () => {
   return (
-    <section className="w-64 space-y-2 p-4">
+    <section className="w-64 space-y-2 p-4 fixed top-16 left-0 z-50 bg-white border-r border-t h-screen">
       <Link to="/" className="flex gap-2">
         <House />
         Home
