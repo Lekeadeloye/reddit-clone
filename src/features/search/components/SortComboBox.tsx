@@ -58,6 +58,7 @@ const SortComboBox = () => {
       <Popover open={isSortByMenuOpen} onOpenChange={setIsSortByMenuOpen}>
         <PopoverTrigger asChild>
           <Button
+            className="border-none"
             variant="outline"
             role="combobox"
             aria-expanded={isSortByMenuOpen}
