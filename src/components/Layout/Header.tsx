@@ -7,7 +7,7 @@ const Header = () => {
   
   return (
     <>
-      <section className="flex items-center w-full p-4 gap-4 border-b">
+      <section className="flex items-center w-full p-4 gap-4">
         <MenuIcon onClick={() => dispatch(toggleMenuSideBar())} />
         <h1 className="mr-auto text-2xl text-orange-600 font-bold justify-center">
           reddit
