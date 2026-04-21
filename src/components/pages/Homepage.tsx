@@ -18,7 +18,9 @@ const Homepage = () => {
   // console.log(data);
   return (
     <>
-      <SortComboBox />
+      <div className="mt-3 p-1">
+        <SortComboBox />
+      </div>
       <h1>This is the Homepage!</h1>
     </>
   );
