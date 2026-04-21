@@ -26,7 +26,7 @@ const PostCard = ({
   timeStamp,
   postTitle,
   upVoteCount,
-  downVoteCount,
+  // downVoteCount,
   commentCount,
   shareCount,
 }: PostCardProps) => {
