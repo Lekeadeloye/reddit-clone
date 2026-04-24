@@ -1,13 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface UIState {
   isMenuSideBarOpen: boolean;
   isSearchBarOpen: boolean;
+  sortBy: string;
 }
 
 const initialState: UIState = {
   isMenuSideBarOpen: false,
-  isSearchBarOpen: false
+  isSearchBarOpen: false,
+  sortBy: 'all'
 };
 
 const uiSlice = createSlice({
@@ -25,11 +27,14 @@ const uiSlice = createSlice({
     },
     toggleSearchBar(state) {
       state.isSearchBarOpen = !state.isSearchBarOpen
+    },
+    setSortBy(state, action: PayloadAction<string>) {
+      state.sortBy = action.payload
     }
   },
 });
 
-export const { toggleMenuSideBar, openMenuSideBar, closeMenuSideBar, toggleSearchBar } =
+export const { toggleMenuSideBar, openMenuSideBar, closeMenuSideBar, toggleSearchBar, setSortBy } =
   uiSlice.actions;
 
 export default uiSlice.reducer;

@@ -14,7 +14,9 @@ import { cn } from "@/lib/utils";
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { selectSortByValue } from "@/redux/selectors/uiSelectors";
+import { setSortBy } from "@/features/ui/uiSlice";
 interface SortComboBoxProps {
   options?: Option[];
   value?: string;
@@ -45,11 +47,13 @@ const options: Option[] = [
   },
 ];
 const SortComboBox = () => {
-  const [sortByValue, setSortByValue] = useState("Best");
   const [isSortByMenuOpen, setIsSortByMenuOpen] = useState(false);
+  const sortByValue = useAppSelector(selectSortByValue)
+  const displayLabel = sortByValue === 'all' ? 'Best' : sortByValue
+  const dispatch = useAppDispatch()
 
   const handleOnSelect = (currentValue: string) => {
-    setSortByValue(currentValue);
+    dispatch(setSortBy(currentValue));
     setIsSortByMenuOpen(false);
   };
 
@@ -63,7 +67,7 @@ const SortComboBox = () => {
             role="combobox"
             aria-expanded={isSortByMenuOpen}
           >
-            {sortByValue} <ChevronDown />
+            {displayLabel} <ChevronDown />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="p-0">
