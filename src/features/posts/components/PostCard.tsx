@@ -15,9 +15,11 @@ import {
   Ellipsis,
 } from "lucide-react";
 import { PostContent } from "./PostContent";
+import { useNavigate } from "react-router-dom";
+import type { PostContent as Content } from "./Post";
 
 interface PostCardProps {
-  author: string;
+  author?: string;
   community?: string;
   timeStamp: string;
   postTitle: string;
@@ -27,30 +29,32 @@ interface PostCardProps {
   shareCount?: number;
   id: string;
   subRedditName: string;
-  thumbnail: string
+  subreddit: string;
+  thumbnail?: string;
+  content: Content;
 }
 
 const PostCard = ({
-  author,
-  // community,
-  subRedditName,
+  subreddit,
   timeStamp,
   postTitle,
   upVoteCount,
   downVoteCount,
-  // id,
-  thumbnail,
+  id,
   commentCount,
   shareCount,
-  content
+  content,
 }: PostCardProps) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/post/${subreddit}/${id}`);
+  };
   return (
     <>
-      <Card className="rounded-none">
+      <Card className="rounded-none cursor-pointer" onClick={handleClick}>
         <CardHeader>
           <div>
-            {/* {author} */}
-            {subRedditName}
+            {`r/${subreddit}`}
             {timeStamp}
           </div>
           <CardTitle>{postTitle}</CardTitle>
@@ -58,10 +62,8 @@ const PostCard = ({
             <Ellipsis />
           </CardAction>
         </CardHeader>
-        <CardContent >
-          {/* <img src={thumbnail} alt="" />
-          {thumbnail} */}
-          <PostContent content={content}/>
+        <CardContent>
+          <PostContent content={content} />
         </CardContent>
         <CardFooter className="border-none bg-white gap-2 p-1.5 pl-3">
           <Button className="bg-gray-500 rounded-2xl p-4">

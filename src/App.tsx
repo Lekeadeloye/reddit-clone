@@ -7,11 +7,13 @@ import {
 
 import Homepage from "./components/pages/Homepage";
 import Root from "./components/layout/Root";
+import SinglePost from "./components/pages/SinglePost";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route path="/" element={<Homepage />}></Route>
+      <Route index element={<Homepage />}></Route>
+      <Route path="/post/:subReddit/:postId" element={<SinglePost />}></Route>
     </Route>,
   ),
 );
