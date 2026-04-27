@@ -1,10 +1,7 @@
-// import { useGetPostsQuery } from "@/services/postsApi";
 import { formatEpochSecondsAsDate } from "@/utils";
 import PostCard from "./PostCard";
 
-const Posts = ({isLoading, error, data}) => {
-  // const { isLoading, error, data } = useGetPostsQuery({});
-
+const Posts = ({ isLoading, error, data }) => {
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -16,25 +13,28 @@ const Posts = ({isLoading, error, data}) => {
   const posts = data.posts.map((post) => {
     const {
       id,
-      postTitle,
+      title,
       author,
       ups,
       downs,
       num_comments,
       subreddit_name_prefixed,
+      subreddit,
       created,
       thumbnail,
     } = post;
+
     // Video
     if (post.is_video && post.media?.reddit_video?.fallback_url) {
       return {
         id,
-        postTitle,
+        postTitle: title,
         author,
         upVoteCount: ups,
         downVoteCount: downs,
         commentCount: num_comments,
         subRedditName: subreddit_name_prefixed,
+        subreddit,
         timeStamp: formatEpochSecondsAsDate(created),
         thumbnail,
         content: {
@@ -48,12 +48,13 @@ const Posts = ({isLoading, error, data}) => {
     if (post.post_hint === "image") {
       return {
         id,
-        postTitle,
+        postTitle: title,
         author,
         upVoteCount: ups,
         downVoteCount: downs,
         commentCount: num_comments,
         subRedditName: subreddit_name_prefixed,
+        subreddit,
         timeStamp: formatEpochSecondsAsDate(created),
         thumbnail,
         content: {
@@ -67,12 +68,13 @@ const Posts = ({isLoading, error, data}) => {
     if (post.selftext) {
       return {
         id,
-        postTitle,
+        postTitle: title,
         author,
         upVoteCount: ups,
         downVoteCount: downs,
         commentCount: num_comments,
         subRedditName: subreddit_name_prefixed,
+        subreddit,
         timeStamp: formatEpochSecondsAsDate(created),
         thumbnail,
         content: {
@@ -86,12 +88,13 @@ const Posts = ({isLoading, error, data}) => {
 
     return {
       id,
-      postTitle,
+      postTitle: title,
       author,
       upVoteCount: ups,
       downVoteCount: downs,
       commentCount: num_comments,
       subRedditName: subreddit_name_prefixed,
+      subreddit,
       timeStamp: formatEpochSecondsAsDate(created),
       thumbnail,
       content: {

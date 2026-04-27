@@ -8,17 +8,29 @@ export const postsApi = createApi({
   endpoints: (builder) => ({
     getPosts: builder.query({
       query: () => ({
-        url: 'posts',
-        timeout: 5000
-      })
+        url: "posts",
+        timeout: 5000,
+      }),
     }),
     getPostsBySort: builder.query({
       query: (sortBy) => ({
         url: `posts?sort=${sortBy.toLowerCase()}`,
         timeout: 5000,
-    })
-    })
+      }),
+    }),
+    getPostsBySubReddit: builder.query({
+      query: (subreddit) => ({
+        url: `posts/${subreddit.toLowerCase()}`,
+        timeout: 5000,
+      }),
+    }),
+    getPostBySubRedditAndId: builder.query({
+      query: ({subreddit, id}) => ({
+        url: `posts/r/${subreddit}/${id}`,
+        timeout: 5000,
+      }),
+    }),
   }),
 });
 
-export const { useGetPostsQuery, useGetPostsBySortQuery } = postsApi;
+export const { useGetPostsQuery, useGetPostsBySortQuery, useGetPostBySubRedditAndIdQuery } = postsApi;
