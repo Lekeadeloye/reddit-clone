@@ -1,4 +1,3 @@
-import { formatEpochSecondsAsDate } from "@/utils";
 import PostCard from "./PostCard";
 
 const Posts = ({ isLoading, error, data }) => {
@@ -35,7 +34,7 @@ const Posts = ({ isLoading, error, data }) => {
         commentCount: num_comments,
         subRedditName: subreddit_name_prefixed,
         subreddit,
-        timeStamp: formatEpochSecondsAsDate(created),
+        timeStamp: created,
         thumbnail,
         content: {
           type: "video",
@@ -55,7 +54,7 @@ const Posts = ({ isLoading, error, data }) => {
         commentCount: num_comments,
         subRedditName: subreddit_name_prefixed,
         subreddit,
-        timeStamp: formatEpochSecondsAsDate(created),
+        timeStamp: created,
         thumbnail,
         content: {
           type: "image",
@@ -75,7 +74,7 @@ const Posts = ({ isLoading, error, data }) => {
         commentCount: num_comments,
         subRedditName: subreddit_name_prefixed,
         subreddit,
-        timeStamp: formatEpochSecondsAsDate(created),
+        timeStamp: created,
         thumbnail,
         content: {
           type: "text",
@@ -95,7 +94,7 @@ const Posts = ({ isLoading, error, data }) => {
       commentCount: num_comments,
       subRedditName: subreddit_name_prefixed,
       subreddit,
-      timeStamp: formatEpochSecondsAsDate(created),
+      timeStamp: created,
       thumbnail,
       content: {
         type: "link",

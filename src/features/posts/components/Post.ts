@@ -7,7 +7,7 @@ export type PostContent =
 export type Post = {
   author: string;
   community?: string;
-  timeStamp: string;
+  timeStamp: number;
   postTitle: string;
   upVoteCount: number;
   downVoteCount: number;

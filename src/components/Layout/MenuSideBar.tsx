@@ -43,7 +43,6 @@ const MenuSideBar = () => {
         Create Custom Feed
       </Link>
       <hr />
-
     </section>
   );
 };

@@ -13,20 +13,15 @@ import {
 import { MenuIcon } from "lucide-react";
 
 const MainMenu = () => {
-
   return (
     <>
       <Drawer direction="left">
         <DrawerTrigger asChild>
-          <MenuIcon/>
+          <MenuIcon />
         </DrawerTrigger>
         <DrawerContent>
-          <Link to=''>
-            Popular
-          </Link>
-            <Link to=''>
-            Latest
-          </Link>
+          <Link to="">Popular</Link>
+          <Link to="">Latest</Link>
         </DrawerContent>
       </Drawer>
     </>

@@ -25,7 +25,7 @@ export const postsApi = createApi({
       }),
     }),
     getPostBySubRedditAndId: builder.query({
-      query: ({subreddit, id}) => ({
+      query: ({ subreddit, id }) => ({
         url: `posts/r/${subreddit}/${id}`,
         timeout: 5000,
       }),
@@ -33,4 +33,9 @@ export const postsApi = createApi({
   }),
 });
 
-export const { useGetPostsQuery, useGetPostsBySortQuery, useGetPostBySubRedditAndIdQuery } = postsApi;
+export const {
+  useGetPostsQuery,
+  useGetPostsBySortQuery,
+  useGetPostBySubRedditAndIdQuery,
+  useGetPostsBySubRedditQuery,
+} = postsApi;

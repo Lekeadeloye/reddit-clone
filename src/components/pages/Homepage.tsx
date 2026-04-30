@@ -4,10 +4,8 @@ import { useGetPostsBySortQuery } from "@/services/postsApi";
 import { useAppSelector } from "@/redux/hooks";
 import { selectSortByValue } from "@/redux/selectors/uiSelectors";
 
-
 const Homepage = () => {
-  ;
-  const sortByValue = useAppSelector(selectSortByValue)
+  const sortByValue = useAppSelector(selectSortByValue);
   const { isLoading, error, data } = useGetPostsBySortQuery(sortByValue);
 
   return (

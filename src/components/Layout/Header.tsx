@@ -3,8 +3,8 @@ import { useAppDispatch } from "@/redux/hooks";
 import { toggleMenuSideBar } from "@/features/ui/uiSlice";
 
 const Header = () => {
-  const dispatch = useAppDispatch()
-  
+  const dispatch = useAppDispatch();
+
   return (
     <>
       <section className="flex items-center w-full p-4 gap-4">

@@ -48,9 +48,9 @@ const options: Option[] = [
 ];
 const SortComboBox = () => {
   const [isSortByMenuOpen, setIsSortByMenuOpen] = useState(false);
-  const sortByValue = useAppSelector(selectSortByValue)
-  const displayLabel = sortByValue === 'all' ? 'Best' : sortByValue
-  const dispatch = useAppDispatch()
+  const sortByValue = useAppSelector(selectSortByValue);
+  const displayLabel = sortByValue === "all" ? "Best" : sortByValue;
+  const dispatch = useAppDispatch();
 
   const handleOnSelect = (currentValue: string) => {
     dispatch(setSortBy(currentValue));

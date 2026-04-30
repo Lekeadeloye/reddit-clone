@@ -4,7 +4,6 @@ import {
   useGetPostsQuery,
   useGetPostBySubRedditAndIdQuery,
 } from "@/services/postsApi";
-import { formatEpochSecondsAsDate } from "@/utils";
 
 const SinglePost = () => {
   const { postId, subReddit } = useParams();
@@ -23,9 +22,9 @@ const SinglePost = () => {
   if (!data?.post) return <p>No posts found</p>;
 
   // const post = data.posts.find((el) => el.id === postId);
-  const post = data.post
-  const comments = data.comments
-  console.log('Post:', post, 'Comments:', comments)
+  const post = data.post;
+  const comments = data.comments;
+  console.log("Post:", post, "Comments:", comments);
 
   if (!post) return <p>Post Not Found</p>;
 
@@ -79,7 +78,7 @@ const SinglePost = () => {
     author,
     subreddit: postSubreddit,
     subRedditName: subreddit_name_prefixed,
-    timeStamp: formatEpochSecondsAsDate(created),
+    timeStamp: created,
     thumbnail,
     upVoteCount: ups,
     downVoteCount: downs,

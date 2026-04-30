@@ -10,9 +10,9 @@ export const debounceMiddleware: Middleware = (store) => (next) => (action) => {
   if (setQuery.match(action)) {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
-      store.dispatch(setDebouncedQuery(action.payload))
-    }, 400)
+      store.dispatch(setDebouncedQuery(action.payload));
+    }, 400);
   }
 
-  return result
-}
+  return result;
+};
