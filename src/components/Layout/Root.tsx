@@ -23,9 +23,7 @@ const Root = () => {
   return (
     <div className="w-full">
       <Header />
-      <div className="pl-3 pr-3">
-        {!isMenuSideBarOpen && <SearchButton />}
-      </div>
+      <div className="pl-3 pr-3">{!isMenuSideBarOpen && <SearchButton />}</div>
       {isMenuSideBarOpen && <MenuSideBar />}
 
       <main>

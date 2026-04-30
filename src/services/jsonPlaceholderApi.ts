@@ -1,21 +1,21 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const jsonPlaceholderApi = createApi({
-  reducerPath: 'jsonPlaceholderApi',
+  reducerPath: "jsonPlaceholderApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://jsonplaceholder.typicode.com/',
+    baseUrl: "https://jsonplaceholder.typicode.com/",
   }),
   endpoints: (builder) => ({
-    getPosts: builder.query({query: () => 'posts'}),
+    getPosts: builder.query({ query: () => "posts" }),
     // example of a mutation
     createPosts: builder.mutation({
       query: (newPost) => ({
-        url: 'posts',
-        method: 'POST',
-        body: newPost
-      })
-    })
-  })
-})
+        url: "posts",
+        method: "POST",
+        body: newPost,
+      }),
+    }),
+  }),
+});
 
-export const {useGetPostsQuery, useCreatePostsMutation} = jsonPlaceholderApi
+export const { useGetPostsQuery, useCreatePostsMutation } = jsonPlaceholderApi;

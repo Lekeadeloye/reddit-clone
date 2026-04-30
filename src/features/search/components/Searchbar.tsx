@@ -4,14 +4,18 @@ import { useAppDispatch } from "@/redux/hooks";
 import { ArrowLeft } from "lucide-react";
 
 const SearchBar = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   return (
     <section className="flex p-3.5 items-center gap-3 border-b">
       <ArrowLeft onClick={() => dispatch(toggleSearchBar())} />
-      <Input autoFocus className="border-2 border-blue-300 rounded-3xl p-5" placeholder="Find anything"/>
+      <Input
+        autoFocus
+        className="border-2 border-blue-300 rounded-3xl p-5"
+        placeholder="Find anything"
+      />
     </section>
   );
 };
 
-export default SearchBar
+export default SearchBar;

@@ -5,15 +5,15 @@ interface UIState {
   isSearchBarOpen: boolean;
   sortBy: string;
   isSinglePost: boolean;
-  selectedPostId: string | null
+  selectedPostId: string | null;
 }
 
 const initialState: UIState = {
   isMenuSideBarOpen: false,
   isSearchBarOpen: false,
-  sortBy: 'all',
+  sortBy: "all",
   isSinglePost: false,
-  selectedPostId: null
+  selectedPostId: null,
 };
 
 const uiSlice = createSlice({
@@ -30,22 +30,28 @@ const uiSlice = createSlice({
       state.isMenuSideBarOpen = false;
     },
     toggleSearchBar(state) {
-      state.isSearchBarOpen = !state.isSearchBarOpen
+      state.isSearchBarOpen = !state.isSearchBarOpen;
     },
     setSortBy(state, action: PayloadAction<string>) {
-      state.sortBy = action.payload
+      state.sortBy = action.payload;
     },
     toggleSinglePost(state) {
-      state.isSinglePost = !state.isSinglePost
+      state.isSinglePost = !state.isSinglePost;
     },
     setSelectedPostId(state, action: PayloadAction<string | null>) {
       state.selectedPostId = action.payload;
-      state.isSinglePost = action.payload !== null
-    }
+      state.isSinglePost = action.payload !== null;
+    },
   },
 });
 
-export const { toggleMenuSideBar, openMenuSideBar, closeMenuSideBar, toggleSearchBar, setSortBy, toggleSinglePost } =
-  uiSlice.actions;
+export const {
+  toggleMenuSideBar,
+  openMenuSideBar,
+  closeMenuSideBar,
+  toggleSearchBar,
+  setSortBy,
+  toggleSinglePost,
+} = uiSlice.actions;
 
 export default uiSlice.reducer;

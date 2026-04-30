@@ -3,23 +3,23 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 interface SearchUIState {
   query: string;
   debouncedQuery: string;
-  type: 'posts' | 'communities' | 'users';
-  sort: 'relevance' | 'new' | 'top';
+  type: "posts" | "communities" | "users";
+  sort: "relevance" | "new" | "top";
   page: number;
   isPopoverOpen: boolean;
 }
 
 const initialState: SearchUIState = {
-  query: '',
-  debouncedQuery: '',
-  type: 'posts',
-  sort: 'relevance',
+  query: "",
+  debouncedQuery: "",
+  type: "posts",
+  sort: "relevance",
   page: 1,
-  isPopoverOpen: false
-}
+  isPopoverOpen: false,
+};
 
 const searchSlice = createSlice({
-  name: 'search',
+  name: "search",
   initialState,
   reducers: {
     setQuery(state, action: PayloadAction<string>) {
@@ -30,11 +30,11 @@ const searchSlice = createSlice({
       state.debouncedQuery = action.payload;
       state.page = 1; // reset page on new search
     },
-    setType(state, action: PayloadAction<SearchUIState['type']>) {
+    setType(state, action: PayloadAction<SearchUIState["type"]>) {
       state.type = action.payload;
-      state.page = 1
+      state.page = 1;
     },
-    setSort(state, action: PayloadAction<SearchUIState['sort']>) {
+    setSort(state, action: PayloadAction<SearchUIState["sort"]>) {
       state.sort = action.payload;
     },
     setPage(state, action: PayloadAction<number>) {
@@ -44,13 +44,19 @@ const searchSlice = createSlice({
       state.isPopoverOpen = false;
     },
     clearSearch(state) {
-      return initialState
-    }
-  }
-})
+      return initialState;
+    },
+  },
+});
 
 export const {
-  setQuery, setDebouncedQuery, setType, setSort, setPage, closePopover, clearSearch
+  setQuery,
+  setDebouncedQuery,
+  setType,
+  setSort,
+  setPage,
+  closePopover,
+  clearSearch,
 } = searchSlice.actions;
 
-export default searchSlice.reducer
+export default searchSlice.reducer;
